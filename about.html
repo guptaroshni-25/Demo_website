@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-K43SXSNN');</script>
+<!-- End Google Tag Manager -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PQXBW5RS9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-1PQXBW5RS9');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Demo Website</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K43SXSNN"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+  <!-- Navigation Bar -->
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="contacts.html">Contact</a>
+    <a href="https://www.google.com" target="_blank">Google (External)</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="products">
+  <h2>Featured Products</h2>
+  <div class="product-row">
+    <div class="product">
+      <img src="wirelesshead.jpg" alt="Wireless Headphones">
+      <h3>Wireless Headphones</h3>
+      <p>$59.99</p>
+      <label for="qty-wh">Qty:</label>
+      <input type="number" id="qty-wh" min="1" value="1">
+      <button class="btn" onclick="addToCart('Wireless Headphones', 'WH001', 59.99, document.getElementById('qty-wh').value)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="smartw.jpg" alt="Smart Watch">
+      <h3>Smart Watch</h3>
+      <p>$89.99</p>
+      <label for="qty-sw">Qty:</label>
+      <input type="number" id="qty-sw" min="1" value="1">
+      <button class="btn" onclick="addToCart('Smart Watch', 'SW001', 89.99, document.getElementById('qty-sw').value)">Add to Cart</button>
+    </div>
+
+    <div class="product">
+      <img src="bluetooth.jpg" alt="Bluetooth Speaker">
+      <h3>Bluetooth Speaker</h3>
+      <p>$29.99</p>
+      <label for="qty-bs">Qty:</label>
+      <input type="number" id="qty-bs" min="1" value="1">
+      <button class="btn" onclick="addToCart('Bluetooth Speaker', 'BS001', 29.99, document.getElementById('qty-bs').value)">Add to Cart</button>
+    </div>
+  </div>
+</section>
+
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We build simple and beautiful websites. Here's an example of a clickable button:</p>
+    <button class="btn" onclick="alert('Button Clicked!')">Click Me</button>
+  </section>
+
+  <div class="video-wrapper">
+  <iframe width="560" height="315"
+    src="https://www.youtube.com/embed/UUbkYisa7-g?si=oDMdD60HFgh3Yn0u" 
+    title="YouTube video"
+    frameborder="0" 
+    allowfullscreen>
+  </iframe>
+</div>
+
+<script>
+function addToCart(productName, productId, price, quantity) {
+  quantity = parseInt(quantity) || 1;
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    event: 'add_to_cart',
+    ecommerce: {
+      items: [
+        {
+          item_name: productName,
+          item_id: productId,
+          price: price,
+          quantity: quantity
+        }
+      ]
+    }
+  });
+  alert(quantity + " × " + productName + " added to cart!");
+}
+</script>
+
+</body>
+</html>
