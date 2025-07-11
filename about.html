@@ -95,12 +95,14 @@ function addToCart(productName, productId, price, quantity) {
   dataLayer.push({
     event: 'add_to_cart',
     ecommerce: {
+        currency: 'USD',
       items: [
         {
           item_name: productName,
           item_id: productId,
           price: price,
-          quantity: quantity
+          quantity: quantity,
+            item_category: 'Featured'
         }
       ]
     }
