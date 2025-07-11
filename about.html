@@ -18,28 +18,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   gtag('config', 'G-1PQXBW5RS9');
 </script>
 
-    <script>
-function addToCart(productName, productId, price, quantity) {
-  quantity = parseInt(quantity) || 1;
-  window.dataLayer = window.dataLayer || [];
-  dataLayer.push({
-    event: 'add_to_cart',
-    ecommerce: {
-        currency: 'USD',
-      items: [
-        {
-          item_name: productName,
-          item_id: productId,
-          price: price,
-          quantity: quantity,
-            item_category: 'Featured'
-        }
-      ]
-    }
-  });
-  alert(quantity + " × " + productName + " added to cart!");
-}
-</script>
+    
     
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -110,7 +89,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     allowfullscreen>
   </iframe>
 </div>
-
+<script>
+function addToCart(productName, productId, price, quantity) {
+  quantity = parseInt(quantity) || 1;
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    event: 'add_to_cart',
+    ecommerce: {
+        currency: 'USD',
+      items: [
+        {
+          item_name: productName,
+          item_id: productId,
+          price: price,
+          quantity: quantity,
+            item_category: 'Featured'
+        }
+      ]
+    }
+  });
+  alert(quantity + " × " + productName + " added to cart!");
+}
+</script>
 
 
 </body>
