@@ -89,26 +89,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     allowfullscreen>
   </iframe>
 </div>
+    
 <script>
 function addToCart(productName, productId, price, quantity) {
   quantity = parseInt(quantity) || 1;
-  window.dataLayer = window.dataLayer || [];
-  dataLayer.push({
+  const payload = {
     event: 'add_to_cart',
     ecommerce: {
-        currency: 'USD',
-      items: [
-        {
-          item_name: productName,
-          item_id: productId,
-          price: price,
-          quantity: quantity,
-            item_category: 'Featured'
-        }
-      ]
+      currency: 'USD',
+      items: [{
+        item_name: productName,
+        item_id: productId,
+        price: price,
+        quantity: quantity,
+        item_category: 'Featured'
+      }]
     }
-  });
-  alert(quantity + " × " + productName + " added to cart!");
+  };
+  console.log('Pushing to dataLayer:', payload); // 👈 Add this
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push(payload);
+  alert(`${quantity} × ${productName} added to cart!`);
 }
 </script>
 
