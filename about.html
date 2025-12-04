@@ -73,7 +73,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 </section>
+<button id="completePurchaseBtn" 
+            style="padding: 12px 25px; font-size: 16px; cursor:pointer;">
+        Complete Purchase (Test)
+    </button>
 
+    
 
   <section id="about">
     <h2>About Us</h2>
@@ -111,8 +116,39 @@ function addToCart(productName, productId, price, quantity) {
   dataLayer.push(payload);
   alert(`${quantity} × ${productName} added to cart!`);
 }
+    
+        document.getElementById("completePurchaseBtn").addEventListener("click", function () {
+            // GA4 purchase event via dataLayer.push()
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+                event: "purchase",
+                ecommerce: {
+                    transaction_id: "ORDER-" + Math.floor(Math.random() * 1000000),
+                    value: 149.97,
+                    currency: "USD",
+                    items: [
+                        {
+                            item_id: "HP-01",
+                            item_name: "Wireless Headphones",
+                            price: 59.99,
+                            quantity: 1
+                        },
+                        {
+                            item_id: "SW-01",
+                            item_name: "Smart Watch",
+                            price: 89.99,
+                            quantity: 1
+                        }
+                    ]
+                }
+            });
+
+            alert("Purchase event fired! Check GA4 DebugView.");
+        });
+
 </script>
 
 
 </body>
 </html>
+
