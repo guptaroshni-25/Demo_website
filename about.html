@@ -1,156 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-      <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="91a9d011-bcac-4e22-9be8-df99a488ea60" data-blockingmode="auto" type="text/javascript"></script>
 
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
-var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
-j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K43SXSNN');</script>
-<!-- End Google Tag Manager -->
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PQXBW5RS9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1PQXBW5RS9');
-</script>
-
-    
-    
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Demo Website</title>
+  <title>About Us</title>
   <link rel="stylesheet" href="styles.css" />
+
 </head>
 
 <body>
 
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K43SXSNN"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
-  <!-- Navigation Bar -->
+  <!-- Navigation -->
   <nav>
     <a href="index.html">Home</a>
-    <a href="#about">About</a>
+    <a href="about.html">About</a>
     <a href="contacts.html">Contact</a>
-    <a href="https://www.google.com" target="_blank">Google (External)</a>
   </nav>
 
   <!-- About Section -->
-  <section id="products">
-  <h2>Featured Products</h2>
-  <div class="product-row">
-    <div class="product">
-      <img src="wirelesshead.jpg" alt="Wireless Headphones">
-      <h3>Wireless Headphones</h3>
-      <p>$59.99</p>
-      <label for="qty-wh">Qty:</label>
-      <input type="number" id="qty-wh" min="1" value="1">
-      <button class="btn" onclick="addToCart('Wireless Headphones', 'WH001', 59.99, document.getElementById('qty-wh').value)">Add to Cart</button>
-    </div>
+  <section>
+    <h1>About Us</h1>
+    <p>
+      We are a digital solutions company helping businesses grow through
+      technology, design, and marketing strategies.
+    </p>
 
-    <div class="product">
-      <img src="smartw.jpg" alt="Smart Watch">
-      <h3>Smart Watch</h3>
-      <p>$89.99</p>
-      <label for="qty-sw">Qty:</label>
-      <input type="number" id="qty-sw" min="1" value="1">
-      <button class="btn" onclick="addToCart('Smart Watch', 'SW001', 89.99, document.getElementById('qty-sw').value)">Add to Cart</button>
-    </div>
-
-    <div class="product">
-      <img src="bluetooth.jpg" alt="Bluetooth Speaker">
-      <h3>Bluetooth Speaker</h3>
-      <p>$29.99</p>
-      <label for="qty-bs">Qty:</label>
-      <input type="number" id="qty-bs" min="1" value="1">
-      <button class="btn" onclick="addToCart('Bluetooth Speaker', 'BS001', 29.99, document.getElementById('qty-bs').value)">Add to Cart</button>
-    </div>
-  </div>
-</section>
-<button id="completePurchaseBtn" 
-            style="padding: 12px 25px; font-size: 16px; cursor:pointer;">
-        Complete Purchase (Test)
-    </button>
-
-    
-
-  <section id="about">
-    <h2>About Us</h2>
-    <p>We build simple and beautiful websites. Here's an example of a clickable button:</p>
-    <button class="btn" onclick="alert('Button Clicked!')">Click Me</button>
+    <p>
+      Our mission is to deliver high-quality web solutions that create real impact.
+    </p>
   </section>
 
-  <div class="video-wrapper">
-  <iframe width="560" height="315"
-    src="https://www.youtube.com/embed/UUbkYisa7-g?si=oDMdD60HFgh3Yn0u" 
-    title="YouTube video"
-    frameborder="0" 
-    allowfullscreen>
-  </iframe>
-</div>
-    
-<script>
-function addToCart(productName, productId, price, quantity) {
-  quantity = parseInt(quantity) || 1;
-  const payload = {
-    event: 'add_to_cart',
-    ecommerce: {
-      currency: 'USD',
-      items: [{
-        item_name: productName,
-        item_id: productId,
-        price: price,
-        quantity: quantity,
-        item_category: 'Featured'
-      }]
+  <!-- 🔥 CONSENT BANNER -->
+  <div id="consent-banner" style="
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  z-index: 9999;
+  ">
+    <p>We use cookies to improve your experience.</p>
+    <button onclick="acceptConsent()">Accept</button>
+    <button onclick="rejectConsent()">Reject</button>
+  </div>
+
+  <!-- 🔥 BASIC CONSENT SCRIPT -->
+  <script>
+    function loadGTM() {
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id=GTM-K43SXSNN'+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-K43SXSNN');
     }
-  };
-  console.log('Pushing to dataLayer:', payload); // 👈 Add this
-  window.dataLayer = window.dataLayer || [];
-  dataLayer.push(payload);
-  alert(`${quantity} × ${productName} added to cart!`);
-}
-    
-        document.getElementById("completePurchaseBtn").addEventListener("click", function () {
-            // GA4 purchase event via dataLayer.push()
-            window.dataLayer = window.dataLayer || [];
-            window.dataLayer.push({
-                event: "purchase",
-                ecommerce: {
-                    transaction_id: "ORDER-" + Math.floor(Math.random() * 1000000),
-                    value: 149.97,
-                    currency: "USD",
-                    items: [
-                        {
-                            item_id: "HP-01",
-                            item_name: "Wireless Headphones",
-                            price: 59.99,
-                            quantity: 1
-                        },
-                        {
-                            item_id: "SW-01",
-                            item_name: "Smart Watch",
-                            price: 89.99,
-                            quantity: 1
-                        }
-                    ]
-                }
-            });
 
-            alert("Purchase event fired! Check GA4 DebugView.");
-        });
+    function acceptConsent() {
+      localStorage.setItem("consent", "accepted");
+      loadGTM();
+      document.getElementById("consent-banner").style.display = "none";
+    }
 
-</script>
+    function rejectConsent() {
+      localStorage.setItem("consent", "rejected");
+      document.getElementById("consent-banner").style.display = "none";
+    }
 
+    window.onload = function () {
+      const consent = localStorage.getItem("consent");
+
+      if (consent === "accepted") {
+        loadGTM();
+        document.getElementById("consent-banner").style.display = "none";
+      } 
+      else if (consent === "rejected") {
+        document.getElementById("consent-banner").style.display = "none";
+      }
+    };
+  </script>
 
 </body>
 </html>
-
