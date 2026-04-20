@@ -2,53 +2,90 @@
 <html lang="en">
 <head>
 
-  <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="91a9d011-bcac-4e22-9be8-df99a488ea60" data-blockingmode="auto" type="text/javascript"></script>
-
-
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-K43SXSNN');</script>
-<!-- End Google Tag Manager -->
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PQXBW5RS9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-1PQXBW5RS9');
-</script>
-
   <meta charset="UTF-8">
   <title>Thank You</title>
   <link rel="stylesheet" href="styles.css" />
+
 </head>
 
 <body>
 
-    <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K43SXSNN"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
-
   <section style="padding: 2em; text-align: center;">
     <h1>Thank You!</h1>
     <p>Your message has been received. We will get back to you soon.</p>
-    <button  class="btn"><a href="index.html">Back to Home</a></button>
+    <button class="btn"><a href="index.html">Back to Home</a></button>
   </section>
 
+  <!-- 🔥 CONSENT BANNER -->
+  <div id="consent-banner" style="
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #222;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  z-index: 9999;
+  ">
+    <p>We use cookies to improve your experience.</p>
+    <button onclick="acceptConsent()">Accept</button>
+    <button onclick="rejectConsent()">Reject</button>
+  </div>
+
+  <!-- 🔥 BASIC CONSENT SCRIPT -->
   <script>
-  window.dataLayer = window.dataLayer || [];
-  dataLayer.push({
-    event: 'form_submission',
-    formType: 'contact',
-    submissionSuccess: true
-  });
-</script>
+    function loadGTM() {
+      (function(w,d,s,l,i){
+        w[l]=w[l]||[];
+        w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+        var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+        j.async=true;
+        j.src='https://www.googletagmanager.com/gtm.js?id=GTM-K43SXSNN'+dl;
+        f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-K43SXSNN');
+    }
+
+    function fireFormEvent() {
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        event: 'form_submission',
+        formType: 'contact',
+        submissionSuccess: true
+      });
+    }
+
+    function acceptConsent() {
+      localStorage.setItem("consent", "accepted");
+      loadGTM();
+
+      // Fire event after GTM loads
+      setTimeout(fireFormEvent, 500);
+
+      document.getElementById("consent-banner").style.display = "none";
+    }
+
+    function rejectConsent() {
+      localStorage.setItem("consent", "rejected");
+      document.getElementById("consent-banner").style.display = "none";
+    }
+
+    window.onload = function () {
+      const consent = localStorage.getItem("consent");
+
+      if (consent === "accepted") {
+        loadGTM();
+
+        // Fire event if already accepted
+        setTimeout(fireFormEvent, 500);
+
+        document.getElementById("consent-banner").style.display = "none";
+      } 
+      else if (consent === "rejected") {
+        document.getElementById("consent-banner").style.display = "none";
+      }
+    };
+  </script>
 
 </body>
 </html>
